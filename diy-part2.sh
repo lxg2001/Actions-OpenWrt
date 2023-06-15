@@ -13,9 +13,6 @@
 #更换默认IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-#ip6assign
-sed -i 's/60/64/g' package/base-files/files/bin/config_generate
-
 #密码
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$.rT.cU4J$wyLRZI4h2AaJMCQBZVYX90:19448:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 
@@ -83,9 +80,10 @@ echo "uci set wireless.default_radio0.key=ueubmbzr" >> package/lean/default-sett
 echo "uci commit wireless" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
-#网口
+#网络
 echo "uci set network.wan.ifname='eth0'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.lan.ifname='eth1 eth2 eth3'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.lan.ip6assign='64'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci commit network" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
