@@ -40,8 +40,8 @@ rm -rf feeds/luci/themes/luci-theme-design
 rm -rf feeds/small8/luci-theme-argone 
 rm -rf feeds/small8/luci-app-argone-config
 
-mv feeds/small8/luci-theme-argon openwrt/feeds/luci/themes
-mv feeds/small8/luci-theme-design openwrt/feeds/luci/themes
+mv feeds/small8/luci-theme-argon feeds/luci/themes
+mv feeds/small8/luci-theme-design feeds/luci/themes
 
 #添加sms-tool中文支持
 cp -rf /home/runner/work/Actions-OpenWrt/Actions-OpenWrt/Replace/luci-sms-tool/zh-cn feeds/small8/luci-app-sms-tool/po
