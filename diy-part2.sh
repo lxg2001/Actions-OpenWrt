@@ -43,9 +43,6 @@ rm -rf feeds/small8/luci-app-argone-config
 mv feeds/small8/luci-theme-argon feeds/luci/themes
 mv feeds/small8/luci-theme-design feeds/luci/themes
 
-#添加sms-tool中文支持
-cp -rf /home/runner/work/Actions-OpenWrt/Actions-OpenWrt/Replace/luci-sms-tool/zh-cn feeds/small8/luci-app-sms-tool/po
-
 #TTYD自动登录
 sed -i 's/login/login -f root/g' feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
