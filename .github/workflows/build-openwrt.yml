@@ -82,10 +82,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
-    - name: Add luci-app-sms-tool Chinese support
-      run: |
-         cp -rf Replace/luci-app-sms-tool/zh-cn openwrt/feeds/small8/luci-app-sms-tool/po
-
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
       
@@ -96,6 +92,10 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+
+    - name: Add luci-app-sms-tool Chinese support
+      run: |
+         cp -rf Replace/luci-app-sms-tool/zh-cn openwrt/feeds/small8/luci-app-sms-tool/po
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
