@@ -1,0 +1,311 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+"Language: zh-cn\n"
+"Last-Translator: lxg2001 - From github.com/lxg2001\n"
+
+msgid "SMS Messages"
+msgstr "短信"
+
+msgid "Received Messages"
+msgstr "收到短信"
+
+msgid "Send Messages"
+msgstr "发送短信"
+
+msgid "USSD"
+msgstr "USSD"
+
+msgid "From"
+msgstr "来自"
+
+msgid "Received"
+msgstr "收到"
+
+msgid "Message"
+msgstr "短信"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "Sample codes"
+msgstr "示例代码"
+
+msgid "Sending USSD codes"
+msgstr "发送USSD代码"
+
+msgid "Please enter phone number"
+msgstr "请输入电话号码"
+
+msgid "Please correct phone number"
+msgstr "请更正电话号码"
+
+msgid "Please enter a message text"
+msgstr "请输入短信内容"
+
+msgid "Please select the message(s) to be deleted"
+msgstr "请选择要删除的短信"
+
+msgid "Reply"
+msgstr "回复"
+
+msgid "SMS sent sucessfully"
+msgstr "短信发送成功"
+
+msgid "Please enter a USSD code"
+msgstr "请输入USSD代码"
+
+msgid "Delete selected message(s)?"
+msgstr "确认要删除选中的短信吗？"
+
+msgid "Delete all the messages?"
+msgstr "确认要删除所有的短信吗？"
+
+msgid "Configuration sms-tool"
+msgstr "配置短信工具"
+
+msgid "Configuration panel for sms_tool and gui application."
+msgstr "短信工具和图形界面应用程序的配置面板。"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "Web UI for receiveling messages via sms_tool. More information about the sms-tool on the"
+msgstr "用于通过短信工具接收消息的Web UI。有关短信工具的更多信息，请访问"
+
+msgid "Web UI for sending messages via sms_tool. More information about the sms-tool on the"
+msgstr "用于通过短信工具发送消息的Web UI。有关短信工具的更多信息，请访问"
+
+msgid "Web UI for handling USSD codes via sms_tool. More information about the sms-tool on the"
+msgstr "通过短信工具处理USSD代码的Web UI。有关短信工具的更多信息，请访问"
+
+msgid "eko.one.pl forum"
+msgstr "eko.one.pl 论坛"
+
+msgid "SIM card"
+msgstr "SIM卡"
+
+msgid "Modem memory"
+msgstr "调制解调器内存"
+
+msgid "Messages store in"
+msgstr "短信储存在"
+
+msgid "Messages (Inbox / Maximum)"
+msgstr "短信 (收件箱 / 最多)"
+
+msgid "Delete Selected"
+msgstr "删除选中"
+
+msgid "Delete message(s)"
+msgstr "删除短信"
+
+msgid "Delete All"
+msgstr "删除所有"
+
+msgid "USSD Codes"
+msgstr "USSD代码"
+
+msgid "Send to"
+msgstr "发给"
+
+msgid "Message text"
+msgstr "短信内容"
+
+msgid "Send Message"
+msgstr "发送短信"
+
+msgid "Code to send"
+msgstr "要发送的代码"
+
+msgid "Send Code"
+msgstr "发送代码"
+
+msgid "SMS Settings"
+msgstr "短信设置"
+
+msgid "USSD Codes Settings"
+msgstr "USSD代码设置"
+
+msgid "SMS Reading Port"
+msgstr "短信读取端口"
+
+msgid "SMS Sending Port"
+msgstr "短信发送端口"
+
+msgid "USSD Sending Port"
+msgstr "USSD代码发送端口"
+
+msgid "Add Prefix to Phone Number"
+msgstr "添加电话号码前缀"
+
+msgid "Automatically add prefix to the phone number field."
+msgstr "自动在电话号码字段中添加前缀。"
+
+msgid "Prefix Number"
+msgstr "前缀号码"
+
+msgid "PHONE_NUMBER"
+msgstr "电话号码"
+
+msgid "Refresh SMS"
+msgstr "刷新短信"
+
+msgid "Sending USSD Code in plain text"
+msgstr "以纯文本方式发送USSD代码"
+
+msgid "Receive message without PDU decoding"
+msgstr "接收不带PDU解码的消息"
+
+msgid "Send the USSD code in plain text. Command is not being coded to the PDU."
+msgstr "以纯文本形式发送USSD代码。命令未被编码到PDU。"
+
+msgid "Receive and display the message without decoding it as a PDU."
+msgstr "接收并显示消息，而不将其解码为PDU。"
+
+msgid "Explanation of number and prefix"
+msgstr "号码和前缀说明"
+
+msgid "In the tab for sending SMSes, show an explanation of the prefix and the correct phone number."
+msgstr "在用于发送短信息的选项卡中，显示前缀和正确电话号码的说明。"
+
+msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."
+msgstr "电话号码前面应该加上国家前缀（对于波兰，是48，没有“+”）。如果数字是5、4或3个字符，则将被视为“短”，并且不应在其前面加上国家/地区前缀。"
+
+msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix."
+msgstr "电话号码前面应该加上国家前缀（对于波兰，是48，没有+）。如果数字是5、4或3个字符，则将其视为..短，并且不应在其前面加上国家/地区前缀。"
+
+msgid "Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."
+msgstr "每行必须具有以下格式：'联系人姓名；电话号码'。保存到文件“/etc/config/phonebook.user”。"
+
+msgid "User Phonebook"
+msgstr "用户电话簿"
+
+msgid "User USSD Codes"
+msgstr "用户USSD代码"
+
+msgid "Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."
+msgstr "每行必须具有以下格式：'代码名称；代码'。保存到文件“/etc/config/usd.user”。"
+
+msgid "Notification Settings"
+msgstr "通知设置"
+
+msgid "The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."
+msgstr "指示灯会通知新消息。在激活此功能之前，请配置并保存短信阅读端口，时间检查短信收件箱并选择通知指示灯。"
+
+msgid "Check inbox every minute(s)"
+msgstr "每分钟检查收件箱"
+
+msgid "Specify how many minutes you want your inbox to be checked."
+msgstr "指定您希望检查收件箱的分钟数。"
+
+msgid "Notification LED"
+msgstr "通知指示灯"
+
+msgid "Select the notification LED."
+msgstr "选择通知指示灯。"
+
+msgid "Notify new messages"
+msgstr "通知新消息"
+
+msgid "Turn on the LED for seconds(s)"
+msgstr "打开指示灯几秒钟"
+
+msgid "Turn off the LED for seconds(s)"
+msgstr "关闭指示灯几秒钟"
+
+msgid "Specify for how long the LED should be on."
+msgstr "指定指示灯应亮起的时间。"
+
+msgid "Specify for how long the LED should be off."
+msgstr "指定指示应熄灭的时间。"
+
+msgid "Merge split messages"
+msgstr "合并拆分邮件"
+
+msgid "Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."
+msgstr "选中此选项可以更容易地阅读消息，但会导致显示和接收的消息数量不一致。"
+
+msgid "Message storage area"
+msgstr "消息存储区域"
+
+msgid "Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."
+msgstr "消息存储在特定位置（例如，SIM卡或调制解调器存储器上），但根据设备类型的不同，也可以使用其他区域。"
+
+msgid "AT Commands"
+msgstr "AT命令"
+
+msgid "Web UI for handling AT commands via sms_tool. More information about the sms-tool on the"
+msgstr "通过短信工具处理AT命令的Web UI。有关短信工具的更多信息，请访问"
+
+msgid "Sending commands to modem"
+msgstr "向调制解调器发送命令"
+
+msgid "User AT Commands"
+msgstr "使用AT命令"
+
+msgid "Command to send"
+msgstr "要发送的命令"
+
+msgid "Please enter a AT Command"
+msgstr "请输入AT命令"
+
+msgid "AT Commands Sending Port"
+msgstr "AT命令发送端口"
+
+msgid "Send Command"
+msgstr "发送命令"
+
+msgid "AT Commands Settings"
+msgstr "AT命令设置"
+
+msgid "Each line must have the following format: 'AT Command name;AT Command'. Save to file '/etc/config/atcmds.user'."
+msgstr "每行必须具有以下格式：“AT命令名称；AT命令'。保存到文件“/etc/config/atcmds.user”。"
+
+msgid "Restart the inbox checking process every"
+msgstr "重新启动收件箱检查过程每隔"
+
+msgid "The process will restart at the selected time interval. This will eliminate the delay in checking your inbox."
+msgstr "进程将在选定的时间间隔重新启动。这将消除检查收件箱的延迟。"
+
+msgid "4h"
+msgstr "4小时"
+
+msgid "6h"
+msgstr "6小时"
+
+msgid "8h"
+msgstr "8小时"
+
+msgid "12h"
+msgstr "12小时"
+
+msgid "The diode is dedicated only to these notifications"
+msgstr "指示灯仅用于这些通知"
+
+msgid "Select 'No' in case the router has only one LED or if the LED is multi-tasking."
+msgstr "如果路由器只有一个指示灯或指示灯是多任务的，请选择“否”。"
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Merge algorithm"
+msgstr "合并算法"
+
+msgid "Simple (merge without sorting)"
+msgstr "简单（合并而不排序）"
+
+msgid "Advanced (merges with sorting)"
+msgstr "高级（合并且排序）"
+
+msgid "Direction of message merging"
+msgstr "消息合并方向"
+
+msgid "From beginning to end"
+msgstr "从开头到结尾"
+
+msgid "From end to beginning"
+msgstr "从结尾到开头"
