@@ -39,6 +39,10 @@ rm -rf feeds/small8/luci-app-argon-config
 
 mv feeds/small8/luci-theme-design feeds/luci/themes
 
+#netdata汉化
+rm -rf feeds/luci/applications/luci-app-netdata
+mv feeds/small8/luci-app-netdata feeds/luci/applications
+
 #TTYD自动登录
 sed -i 's/login/login -f root/g' feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
@@ -64,6 +68,7 @@ echo "" >> package/lean/default-settings/files/zzz-default-settings
 #wifi
 sed -i 's/set wireless.radio${devidx}/set wireless.radio0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i 's/set wireless.default_radio${devidx}/set wireless.default_radio0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/radio0.device=radio${devidx}/radio0.device=radio0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 echo "uci set wireless.radio0.channel=auto" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.band=5g" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.htmode=HE80" >> package/lean/default-settings/files/zzz-default-settings
