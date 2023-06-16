@@ -39,11 +39,6 @@ rm -rf feeds/small8/luci-app-argon-config
 
 mv feeds/small8/luci-theme-design feeds/luci/themes
 
-#添加sms-tool中文支持
-sed -i '/firstchild/d' feeds/small8/luci-app-sms-tool/luasrc/controller/modem/sms.lua
-sed -i 's/luci.controller.modem.sms/luci.controller.sms/g' feeds/small8/luci-app-sms-tool/luasrc/controller/modem/sms.lua
-sed -i 's/modem/services/g' feeds/small8/luci-app-sms-tool/luasrc/controller/modem/sms.lua
-
 #TTYD自动登录
 sed -i 's/login/login -f root/g' feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
