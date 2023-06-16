@@ -50,6 +50,10 @@ sed -i '/init.d/d' feeds/packages/net/wifidog/Makefile
 rm -rf feeds/packages/net/adguardhome
 mv feeds/small8/adguardhome feeds/packages/net
 
+#替换transmission-web-control
+rm -rf feeds/packages/net/transmission-web-control
+mv feeds/small8//transmission-web-control feeds/packages/net
+
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
 
