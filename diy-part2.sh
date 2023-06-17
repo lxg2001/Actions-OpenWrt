@@ -50,9 +50,10 @@ sed -i '/init.d/d' feeds/packages/net/wifidog/Makefile
 rm -rf feeds/packages/net/adguardhome
 mv feeds/small8/adguardhome feeds/packages/net
 
-#替换transmission-web-control
-rm -rf feeds/packages/net/transmission-web-control
-mv feeds/small8//transmission-web-control feeds/packages/net
+#修复transmission
+sed -i '/procd_add_jail_mount "$config_file"/d' feeds/packages/net/transmission/files/transmission.init
+sed -i '137i procd_add_jail_mount "$config_file"\n        web_home="${web_home:-/usr/share/transmission/web}"\n        [ -d "$web_home" ] && procd_add_jail_mount "$web_home"' feeds/packages/net/transmission/files/transmission.init
+sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$config_file"/g' feeds/packages/net/transmission/files/transmission.init
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
