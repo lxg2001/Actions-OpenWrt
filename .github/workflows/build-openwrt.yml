@@ -97,6 +97,10 @@ jobs:
       run: |
          cp -rf Replace/luci-app-sms-tool/zh-cn openwrt/feeds/small8/luci-app-sms-tool/po
 
+    - name: Revise open-vm-tools
+      run: |
+         cp -rf Replace/open-vm-tools openwrt/feeds/packages/utils
+
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
