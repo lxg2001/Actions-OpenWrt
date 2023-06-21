@@ -101,6 +101,10 @@ echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #网络
 echo "uci set network.wan.ifname='eth0'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.wan.proto='pppoe'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.wan.username='GY8688795'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.wan.password='8688795'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.wan6.ifname='@wan'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.lan.ifname='eth1 eth2 eth3'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.lan.ip6assign='64'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci commit network" >> package/lean/default-settings/files/zzz-default-settings
