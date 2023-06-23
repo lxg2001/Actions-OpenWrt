@@ -77,7 +77,6 @@ echo "uci add_list system.ntp.server='time1.cloud.tencent.com'" >> package/lean/
 echo "uci add_list system.ntp.server='pool.ntp.org'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci add_list system.ntp.server='time.apple.com'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci add_list system.ntp.server='time.cloudflare.com'" >> package/lean/default-settings/files/zzz-default-settings
-
 echo "uci commit system" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
@@ -91,13 +90,15 @@ echo "uci set wireless.radio0.band=5g" >> package/lean/default-settings/files/zz
 echo "uci set wireless.radio0.htmode=HE80" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.disabled=0" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.country=US" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set wireless.radio0.legacy_rates=1" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set wireless.radio0.mu_beamformer=0" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.txpower=30" >> package/lean/default-settings/files/zzz-default-settings
 
 echo "uci set wireless.default_radio0=wifi-iface" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.device=radio0" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.network=lan" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.mode=ap" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set wireless.default_radio0.ssid=OpenWrt" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set wireless.default_radio0.ssid=OpenWrt_5G" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.encryption=sae-mixed" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.key=ueubmbzr" >> package/lean/default-settings/files/zzz-default-settings
 
@@ -109,12 +110,9 @@ echo "uci set network.wan.ifname='eth0'" >> package/lean/default-settings/files/
 echo "uci set network.wan.proto='pppoe'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.username='GY8688795'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.password='8688795'" >> package/lean/default-settings/files/zzz-default-settings
-
 echo "uci set network.wan6.ifname='@wan'" >> package/lean/default-settings/files/zzz-default-settings
-
 echo "uci set network.lan.ifname='eth1 eth2 eth3'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.lan.ip6assign='64'" >> package/lean/default-settings/files/zzz-default-settings
-
 echo "uci commit network" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
