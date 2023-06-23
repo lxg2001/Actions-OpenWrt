@@ -70,6 +70,7 @@ sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
 
 #软件源
 echo "sed -i '/small8/d' /etc/opkg/distfeeds.conf" >> package/lean/default-settings/files/zzz-default-settings
+echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #ntp服务器
 echo "uci delete system.ntp.server" >> package/lean/default-settings/files/zzz-default-settings
