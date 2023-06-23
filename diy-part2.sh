@@ -68,6 +68,9 @@ rm -rf feeds/luci/applications/luci-app-netdata/.git
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
 
+#软件源
+echo "sed -i '/small8/d' /etc/opkg/distfeeds.conf" >> package/lean/default-settings/files/zzz-default-settings
+
 #ntp服务器
 echo "uci delete system.ntp.server" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci add_list system.ntp.server='ntp.ntsc.ac.cn'" >> package/lean/default-settings/files/zzz-default-settings
