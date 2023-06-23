@@ -62,7 +62,7 @@ sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$con
 
 #修改netdata
 rm -rf feeds/luci/applications/luci-app-netdata
-git clone https://hub.fgit.ml/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-netdata/.git
 
 #删除zzz-default-settings的exit 0
