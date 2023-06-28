@@ -55,7 +55,6 @@ jobs:
         mkisofs msmtp nano ninja-build npm p7zip p7zip-full patch pip pkgconf python2.7 python3 python3-pyelftools \
         libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
         vim wget xmlto xxd zlib1g-dev 
-        pip install setuptools
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
