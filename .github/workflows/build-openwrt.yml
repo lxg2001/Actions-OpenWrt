@@ -67,6 +67,7 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt
         git checkout 3ef1f5ade3b8f6527bbc4eb9494138de66e07d13
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
@@ -121,7 +122,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.UPLOAD_DL_DIR == 'true'
       with:
-        name: OpenWrt_dl${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: OpenWrt_dl
         path: openwrt/dl
         
     - name: Compile the firmware
