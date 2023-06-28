@@ -12,8 +12,8 @@
 
 #更改内核版本
 > include/kernel-6.1
-echo "LINUX_VERSION-6.1 = .33" >> include/kernel-6.1
-echo "LINUX_KERNEL_HASH-6.1.33 = b87d6ba8ea7328e8007a7ea9171d1aa0d540d95eacfcab09578e0a3b623dd2cd" >> include/kernel-6.1
+echo "LINUX_VERSION-6.1 = .35" >> include/kernel-6.1
+echo "LINUX_KERNEL_HASH-6.1.35 = be368143bc5d0dc73dd3e8c6191630c1620520379baf6f47c16116b2c0bc26ac" >> include/kernel-6.1
 
 #更换默认IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
