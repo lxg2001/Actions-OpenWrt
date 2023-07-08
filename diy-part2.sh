@@ -5,9 +5,9 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/P3TERX/Actions-Openwrt
+# https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
-# Description: Openwrt DIY script part 2 (After Update feeds)
+# Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
 #密码
