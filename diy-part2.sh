@@ -10,14 +10,6 @@
 # Description: openwrt DIY script part 2 (After Update feeds)
 #
 
-#更改内核版本
-> include/kernel-6.1
-echo "LINUX_VERSION-6.1 = .35" >> include/kernel-6.1
-echo "LINUX_KERNEL_HASH-6.1.35 = be368143bc5d0dc73dd3e8c6191630c1620520379baf6f47c16116b2c0bc26ac" >> include/kernel-6.1
-
-#更换默认IP
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-
 #密码
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$.rT.cU4J$wyLRZI4h2AaJMCQBZVYX90:19448:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 
@@ -44,26 +36,35 @@ rm -rf feeds/small8/luci-app-argon-config
 
 mv feeds/small8/luci-theme-design feeds/luci/themes
 
-#TTYD自动登录
+#TTYD
 sed -i 's/login/login -f root/g' feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
 
-#修复wifidog
+#wifidog
 sed -i '/init.d/d' feeds/packages/net/wifidog/Makefile
 
-#替换AdguardHome
+#AdguardHome
 rm -rf feeds/packages/net/adguardhome
 mv feeds/small8/adguardhome feeds/packages/net
 
-#修复transmission
+#transmission
 sed -i '/procd_add_jail_mount "$config_file"/d' feeds/packages/net/transmission/files/transmission.init
 sed -i '137i procd_add_jail_mount "$config_file"\n        web_home="${web_home:-/usr/share/transmission/web}"\n        [ -d "$web_home" ] && procd_add_jail_mount "$web_home"' feeds/packages/net/transmission/files/transmission.init
 sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$config_file"/g' feeds/packages/net/transmission/files/transmission.init
 
-#修改netdata
-rm -rf feeds/luci/applications/luci-app-netdata
-git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
-rm -rf feeds/luci/applications/luci-app-netdata/.git
+#argone
+cp -f /home/lxg/op/x86/argone/argone feeds/small8/luci-app-argone-config/root/etc/config
+
+#ddns
+cp -f /home/lxg/op/x86/ddns/ddns.config feeds/packages/net/ddns-scripts/files
+
+#socat
+cp -f /home/lxg/op/x86/socat/socat.config feeds/packages/net/socat/files
+
+#fs
+sed -i 's#fs/cifs#fs/smb/client#g' package/kernel/linux/modules/fs.mk
+sed -i 's#fs/ksmbd#fs/smb/server#g' package/kernel/linux/modules/fs.mk
+sed -i 's#fs/smbfs_common#fs/smb/common#g' package/kernel/linux/modules/fs.mk
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
@@ -97,7 +98,7 @@ sed -i 's/set wireless.default_radio${devidx}/set wireless.default_radio0/g' pac
 sed -i 's/radio0.device=radio${devidx}/radio0.device=radio0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 echo "uci set wireless.radio0.channel=auto" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set wireless.radio0.band=5g" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set wireless.radio0.band=2g" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.htmode=HE80" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.disabled=0" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.radio0.country=US" >> package/lean/default-settings/files/zzz-default-settings
@@ -109,7 +110,7 @@ echo "uci set wireless.default_radio0=wifi-iface" >> package/lean/default-settin
 echo "uci set wireless.default_radio0.device=radio0" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.network=lan" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.mode=ap" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set wireless.default_radio0.ssid=OpenWrt_5G" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set wireless.default_radio0.ssid=OpenWrt_2.4G" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.encryption=sae-mixed" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set wireless.default_radio0.key=ueubmbzr" >> package/lean/default-settings/files/zzz-default-settings
 
@@ -117,13 +118,26 @@ echo "uci commit wireless" >> package/lean/default-settings/files/zzz-default-se
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #网络
+echo "uci set network.lan.ifname='eth1 eth2 eth3'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set network.lan.ipaddr=192.168.2.1" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.ifname='eth0'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.proto='pppoe'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.username='GY8688795'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan.password='8688795'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set network.wan6.ifname='@wan'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set network.lan.ifname='eth1 eth2 eth3'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci commit network" >> package/lean/default-settings/files/zzz-default-settings
+echo "" >> package/lean/default-settings/files/zzz-default-settings
+
+#firewall
+echo "delete firewall.qbittorrent" >> package/lean/default-settings/files/zzz-default-settings
+echo "add firewall rule" >> package/lean/default-settings/files/zzz-default-settings
+echo "rename firewall.@rule[-1]='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].name='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].target='ACCEPT'" >> package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].src='wan'" >> package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].dest_port='55555'" >> package/lean/default-settings/files/zzz-default-settings
+echo "commit firewall" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #加回zzz-default-settings的exit 0
