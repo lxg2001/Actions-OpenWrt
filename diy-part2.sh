@@ -120,7 +120,6 @@ echo "uci commit network" >> package/lean/default-settings/files/zzz-default-set
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #firewall
-echo "uci delete firewall.qbittorrent" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci add firewall rule" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci rename firewall.@rule[0]='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[0].name='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
