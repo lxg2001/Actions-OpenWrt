@@ -7,11 +7,6 @@ export GOPROXY=https://goproxy.cn
 #拉取源码
 git clone https://hub.fgit.ml/coolsnowwolf/lede
 
-#更改内核版本
-> /home/lxg/lede/include/kernel-6.1
-echo "LINUX_VERSION-6.1 = .35" >> /home/lxg/lede/include/kernel-6.1
-echo "LINUX_KERNEL_HASH-6.1.35 = be368143bc5d0dc73dd3e8c6191630c1620520379baf6f47c16116b2c0bc26ac" >> /home/lxg/lede/include/kernel-6.1
-
 #切换到源码目录
 cd lede
 
@@ -80,6 +75,11 @@ cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-s
 #socat
 cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/socat/files
 
+#fs
+sed -i 's#fs/cifs#fs/smb/client#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
+sed -i 's#fs/ksmbd#fs/smb/server#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
+sed -i 's#fs/smbfs_common#fs/smb/common#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
+
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 
@@ -143,14 +143,15 @@ echo "uci commit network" >> /home/lxg/lede/package/lean/default-settings/files/
 echo "" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 
 #firewall
-echo "uci set firewall.@rule[0]='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].dest_port='55555'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].enabled='1'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].name='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].proto='tcp udp'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].src='wan'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].target='ACCEPT'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "uci commit firewall" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "delete firewall.qbittorrent" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "add firewall rule" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "rename firewall.@rule[-1]='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].name='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].target='ACCEPT'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].src='wan'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].proto='tcp udp'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[-1].dest_port='55555'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "commit firewall" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 echo "" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 
 #加回zzz-default-settings的exit 0
@@ -166,4 +167,4 @@ make defconfig
 
 make download -j8 V=s
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j$(nproc) || PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j1 || PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j$(nproc) || PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j$(nproc) || PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j1
