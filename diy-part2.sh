@@ -52,15 +52,6 @@ sed -i '/procd_add_jail_mount "$config_file"/d' feeds/packages/net/transmission/
 sed -i '137i procd_add_jail_mount "$config_file"\n        web_home="${web_home:-/usr/share/transmission/web}"\n        [ -d "$web_home" ] && procd_add_jail_mount "$web_home"' feeds/packages/net/transmission/files/transmission.init
 sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$config_file"/g' feeds/packages/net/transmission/files/transmission.init
 
-#argone
-cp -f /home/lxg/op/x86/argone/argone feeds/small8/luci-app-argone-config/root/etc/config
-
-#ddns
-cp -f /home/lxg/op/x86/ddns/ddns.config feeds/packages/net/ddns-scripts/files
-
-#socat
-cp -f /home/lxg/op/x86/socat/socat.config feeds/packages/net/socat/files
-
 #fs
 sed -i 's#fs/cifs#fs/smb/client#g' package/kernel/linux/modules/fs.mk
 sed -i 's#fs/ksmbd#fs/smb/server#g' package/kernel/linux/modules/fs.mk
