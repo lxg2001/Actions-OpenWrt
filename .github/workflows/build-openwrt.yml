@@ -98,7 +98,6 @@ jobs:
       run: |
          cp -rf Replace/luci-app-sms-tool/zh-cn openwrt/feeds/small8/luci-app-sms-tool/po
 
-
     - name: Revise argone
       run: |
          cp -f Replace/argone/argone openwrt/feeds/small8/luci-app-argone-config/root/etc/config
