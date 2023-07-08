@@ -145,12 +145,12 @@ echo "" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settin
 #firewall
 echo "delete firewall.qbittorrent" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 echo "add firewall rule" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "rename firewall.@rule[-1]='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "set firewall.@rule[-1].name='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "set firewall.@rule[-1].target='ACCEPT'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "set firewall.@rule[-1].src='wan'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "set firewall.@rule[-1].proto='tcp udp'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
-echo "set firewall.@rule[-1].dest_port='55555'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "rename firewall.@rule[0]='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[0].name='qbittorrent'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[0].target='ACCEPT'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[0].src='wan'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[0].proto='tcp udp'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
+echo "set firewall.@rule[0].dest_port='55555'" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 echo "commit firewall" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 echo "" >> /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 
