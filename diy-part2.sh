@@ -128,7 +128,7 @@ echo "uci set firewall.@rule[0].target='ACCEPT'" >> package/lean/default-setting
 echo "uci set firewall.@rule[0].src='wan'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[0].proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[0].dest_port='55555'" >> package/lean/default-settings/files/zzz-default-settings
-echo "commit firewall" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci commit firewall" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #加回zzz-default-settings的exit 0
