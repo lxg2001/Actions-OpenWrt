@@ -19,10 +19,11 @@ sed -i 's/github.com/hub.fgit.ml/g' /home/lxg/lede/feeds.conf.default
 
 #替换链接
 sed -i 's/github.com/hub.fgit.ml/g' /home/lxg/lede/feeds/small8/redsocks2/Makefile
+sed -i 's#PKG_GIT_URL:=github.com/docker/cli#PKG_GIT_URL:=hub.fgit.ml/docker/cli#g' /home/lxg/lede/feeds/packages/utils/docker/Makefile
+sed -i 's#GO_PKG:=$(PKG_GIT_URL)#GO_PKG:=github.com/docker/cli#g' /home/lxg/lede/feeds/packages/utils/docker/Makefile
 sed -i 's/PKG_GIT_URL:=github.com/PKG_GIT_URL:=hub.fgit.ml/g' /home/lxg/lede/feeds/packages/utils/dockerd/Makefile
 sed -i 's/github.com/hub.fgit.ml/g' /home/lxg/lede/package/kernel/rtw88-usb/Makefile
-sed -i '/PKG_SOURCE_URL/d' /home/lxg/lede/feeds/small8/adguardhome/Makefile
-sed -i '14i PKG_SOURCE_URL:=https://hub.fgit.ml/AdguardTeam/AdGuardHome' /home/lxg/lede/feeds/small8/adguardhome/Makefile
+sed -i 's#PKG_SOURCE_URL:=https://github.com#PKG_SOURCE_URL:=https://hub.fgit.ml#g' /home/lxg/lede/feeds/small8/adguardhome/Makefile
 
 #密码
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$.rT.cU4J$wyLRZI4h2AaJMCQBZVYX90:19448:0:99999:7:::/g' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
