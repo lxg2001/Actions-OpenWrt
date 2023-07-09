@@ -121,12 +121,12 @@ echo "" >> package/lean/default-settings/files/zzz-default-settings
 
 #firewall
 echo "uci add firewall rule" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci rename firewall.@rule[0]='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].name='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].target='ACCEPT'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].src='wan'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[0].dest_port='55555'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci rename firewall.@rule[-1]='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1].name='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1].target='ACCEPT'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1].src='wan'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1.proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1].dest_port='55555'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci commit firewall" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 
