@@ -76,10 +76,9 @@ cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-s
 #socat
 cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/socat/files
 
-#fs
-sed -i 's#fs/cifs#fs/smb/client#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
-sed -i 's#fs/ksmbd#fs/smb/server#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
-sed -i 's#fs/smbfs_common#fs/smb/common#g' /home/lxg/lede/package/kernel/linux/modules/fs.mk
+#nginx
+cp -f /home/lxg/op/x86/nginx/nginx.conf /home/lxg/lede/feeds/packages/net/nginx/files
+sed -i 's#define Package/nginx/install#define Package/nginx/install\n        $(INSTALL_DIR) $(1)/etc/nginx\n        $(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' /home/lxg/lede/feeds/packages/net/nginx/Makefile
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
