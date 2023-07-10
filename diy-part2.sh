@@ -49,13 +49,10 @@ mv feeds/small8/adguardhome feeds/packages/net
 
 #transmission
 sed -i '/procd_add_jail_mount "$config_file"/d' feeds/packages/net/transmission/files/transmission.init
-sed -i '137i procd_add_jail_mount "$config_file"\n        web_home="${web_home:-/usr/share/transmission/web}"\n        [ -d "$web_home" ] && procd_add_jail_mount "$web_home"' feeds/packages/net/transmission/files/transmission.init
-sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$config_file"/g' feeds/packages/net/transmission/files/transmission.init
+sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/usr/share/transmission/web}"\n\t[ -d "$web_home" ] && procd_add_jail_mount "$web_home"' feeds/packages/net/transmission/files/transmission.init
 
-#fs
-sed -i 's#fs/cifs#fs/smb/client#g' package/kernel/linux/modules/fs.mk
-sed -i 's#fs/ksmbd#fs/smb/server#g' package/kernel/linux/modules/fs.mk
-sed -i 's#fs/smbfs_common#fs/smb/common#g' package/kernel/linux/modules/fs.mk
+#nginx
+sed -i 's#define Package/nginx/install#define Package/nginx/install\n\t$(INSTALL_DIR) $(1)/etc/nginx\n\t$(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' feeds/packages/net/nginx/Makefile				
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
@@ -125,7 +122,7 @@ echo "uci rename firewall.@rule[-1]='qbittorrent'" >> package/lean/default-setti
 echo "uci set firewall.@rule[-1].name='qbittorrent'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[-1].target='ACCEPT'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[-1].src='wan'" >> package/lean/default-settings/files/zzz-default-settings
-echo "uci set firewall.@rule[-1.proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
+echo "uci set firewall.@rule[-1].proto='tcp udp'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci set firewall.@rule[-1].dest_port='55555'" >> package/lean/default-settings/files/zzz-default-settings
 echo "uci commit firewall" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
