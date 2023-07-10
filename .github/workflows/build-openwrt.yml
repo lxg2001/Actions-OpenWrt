@@ -107,6 +107,10 @@ jobs:
     - name: Revise socat.config
       run: |
          cp -f Replace/socat/socat.config openwrt/feeds/packages/net/socat/files       
+    
+    - name: copy nginx.conf
+      run: |
+         cp -f Replace/nginx/nginx.conf openwrt/feeds/packages/net/nginx/files
          
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
