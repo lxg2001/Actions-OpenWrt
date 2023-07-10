@@ -64,8 +64,7 @@ mv /home/lxg/lede/feeds/small8/adguardhome /home/lxg/lede/feeds/packages/net
 
 #transmission
 sed -i '/procd_add_jail_mount "$config_file"/d' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
-sed -i '137i procd_add_jail_mount "$config_file"\n        web_home="${web_home:-/usr/share/transmission/web}"\n        [ -d "$web_home" ] && procd_add_jail_mount "$web_home"' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
-sed -i 's/procd_add_jail_mount "$config_file"/        procd_add_jail_mount "$config_file"/g' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
+sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/usr/share/transmission/web}"\n\t[ -d "$web_home" ] && procd_add_jail_mount "$web_home"' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
 
 #argone
 cp -f /home/lxg/op/x86/argone/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
@@ -78,7 +77,7 @@ cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/soca
 
 #nginx
 cp -f /home/lxg/op/x86/nginx/nginx.conf /home/lxg/lede/feeds/packages/net/nginx/files
-sed -i 's#define Package/nginx/install#define Package/nginx/install\n        $(INSTALL_DIR) $(1)/etc/nginx\n        $(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' /home/lxg/lede/feeds/packages/net/nginx/Makefile
+sed -i 's#define Package/nginx/install#define Package/nginx/install\n\t$(INSTALL_DIR) $(1)/etc/nginx\n\t$(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' /home/lxg/lede/feeds/packages/net/nginx/Makefile				
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
