@@ -51,6 +51,9 @@ rm -rf /home/lxg/lede/feeds/small8/luci-app-argon-config
 
 mv /home/lxg/lede/feeds/small8/luci-theme-design /home/lxg/lede/feeds/luci/themes
 
+#lean
+cp -rf /home/lxg/op/x86/lean/* /home/lxg/lede/package/lean
+
 #TTYD
 sed -i 's/login/login -f root/g' /home/lxg/lede/feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' /home/lxg/lede/feeds/packages/utils/ttyd/files/ttyd.init
@@ -79,8 +82,8 @@ cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/soca
 cp -f /home/lxg/op/x86/nginx/nginx.conf /home/lxg/lede/feeds/packages/net/nginx/files
 sed -i 's#define Package/nginx/install#define Package/nginx/install\n\t$(INSTALL_DIR) $(1)/etc/nginx\n\t$(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' /home/lxg/lede/feeds/packages/net/nginx/Makefile				
 
-#lean
-cp -rf /home/lxg/op/x86/lean/* /home/lxg/lede/package/lean
+#poweroff
+cp -f /home/lxg/op/x86/luci-app-poweroff/poweroff.po /home/lxg/lede/feeds/small8/luci-app-poweroff/po/zh-cn
 
 #删除zzz-default-settings的exit 0
 sed -i '/exit 0/d' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
