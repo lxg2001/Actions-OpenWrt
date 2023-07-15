@@ -79,7 +79,7 @@ sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/us
 cp -f /home/lxg/op/x86/luci-app-argone-config/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
 
 #ddns-scripts
-cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-scripts/files
+cp -f /home/lxg/op/x86/ddns-scripts/ddns.config /home/lxg/lede/feeds/packages/net/ddns-scripts/files
 
 #socat
 cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/socat/files
