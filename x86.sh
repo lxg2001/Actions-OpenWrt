@@ -60,14 +60,14 @@ mv /home/lxg/lede/feeds/small8/luci-theme-design /home/lxg/lede/feeds/luci/theme
 #lean
 cp -rf /home/lxg/op/x86/lean/* /home/lxg/lede/package/lean
 
-#TTYD
+#ttyd
 sed -i 's/login/login -f root/g' /home/lxg/lede/feeds/packages/utils/ttyd/files/ttyd.config
 sed -i '/${interface:+-i $interface}/d' /home/lxg/lede/feeds/packages/utils/ttyd/files/ttyd.init
 
 #wifidog
 sed -i '/init.d/d' /home/lxg/lede/feeds/packages/net/wifidog/Makefile
 
-#AdguardHome
+#adguardHome
 rm -rf /home/lxg/lede/feeds/packages/net/adguardhome
 mv /home/lxg/lede/feeds/small8/adguardhome /home/lxg/lede/feeds/packages/net
 
@@ -75,10 +75,10 @@ mv /home/lxg/lede/feeds/small8/adguardhome /home/lxg/lede/feeds/packages/net
 sed -i '/procd_add_jail_mount "$config_file"/d' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
 sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/usr/share/transmission/web}"\n\t[ -d "$web_home" ] && procd_add_jail_mount "$web_home"' /home/lxg/lede/feeds/packages/net/transmission/files/transmission.init
 
-#argone
-cp -f /home/lxg/op/x86/argone/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
+#luci-app-argone-config
+cp -f /home/lxg/op/x86/luci-app-argone-config/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
 
-#ddns
+#ddns-scripts
 cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-scripts/files
 
 #socat
@@ -88,7 +88,7 @@ cp -f /home/lxg/op/x86/socat/socat.config /home/lxg/lede/feeds/packages/net/soca
 cp -f /home/lxg/op/x86/nginx/nginx.conf /home/lxg/lede/feeds/packages/net/nginx/files
 sed -i 's#define Package/nginx/install#define Package/nginx/install\n\t$(INSTALL_DIR) $(1)/etc/nginx\n\t$(INSTALL_CONF) ./files/nginx.conf $(1)/etc/nginx#g' /home/lxg/lede/feeds/packages/net/nginx/Makefile				
 
-#poweroff
+#luci-app-poweroff
 cp -f /home/lxg/op/x86/luci-app-poweroff/poweroff.po /home/lxg/lede/feeds/small8/luci-app-poweroff/po/zh-cn
 
 #删除zzz-default-settings的exit 0
