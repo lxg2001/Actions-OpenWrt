@@ -28,7 +28,7 @@ sed -i 's#PKG_SOURCE_URL:=https://github.com#PKG_SOURCE_URL:=https://hub.fgit.ml
 #密码
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$.rT.cU4J$wyLRZI4h2AaJMCQBZVYX90:19448:0:99999:7:::/g' /home/lxg/lede/package/lean/default-settings/files/zzz-default-settings
 
-#更换默认主题
+#主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' /home/lxg/lede/feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' /home/lxg/lede/feeds/luci/collections/luci-nginx/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' /home/lxg/lede/feeds/luci/collections/luci-ssl-nginx/Makefile
@@ -48,6 +48,12 @@ rm -rf /home/lxg/lede/feeds/luci/themes/luci-theme-argon-mod
 rm -rf /home/lxg/lede/feeds/luci/themes/luci-theme-design
 rm -rf /home/lxg/lede/feeds/small8/luci-theme-argon 
 rm -rf /home/lxg/lede/feeds/small8/luci-app-argon-config
+
+cp -f /home/lxg/op/x86/themes/argone/cascade.css /home/lxg/lede/feeds/small8/luci-theme-argone/htdocs/luci-static/argone/css
+cp -f /home/lxg/op/x86/themes/design/style.css /home/lxg/lede/feeds/small8/luci-theme-design/htdocs/luci-static/design/css
+cp -f /home/lxg/op/x86/themes/edge/cascade.css /home/lxg/lede/feeds/small8/luci-theme-edge/htdocs/luci-static/edge
+cp -f /home/lxg/op/x86/themes/ifit/style.css /home/lxg/lede/feeds/small8/luci-theme-ifit/files/htdocs/css
+cp -f /home/lxg/op/x86/themes/material/style.css /home/lxg/lede/feeds/luci/themes/luci-theme-material/htdocs/luci-static/material/css
 
 mv /home/lxg/lede/feeds/small8/luci-theme-design /home/lxg/lede/feeds/luci/themes
 
@@ -71,7 +77,6 @@ sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/us
 
 #argone
 cp -f /home/lxg/op/x86/argone/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
-cp -f /home/lxg/op/x86/argone/cascade.css /home/lxg/lede/feeds/small8/luci-theme-argone/htdocs/luci-static/argone/css
 
 #ddns
 cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-scripts/files
