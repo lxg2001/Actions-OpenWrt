@@ -71,6 +71,7 @@ sed -i '137i \\tprocd_add_jail_mount "$config_file"\n\tweb_home="${web_home:-/us
 
 #argone
 cp -f /home/lxg/op/x86/argone/argone /home/lxg/lede/feeds/small8/luci-app-argone-config/root/etc/config
+cp -f /home/lxg/op/x86/argone/cascade.css /home/lxg/lede/feeds/small8/luci-theme-argone/htdocs/luci-static/argone/css
 
 #ddns
 cp -f /home/lxg/op/x86/ddns/ddns.config /home/lxg/lede/feeds/packages/net/ddns-scripts/files
